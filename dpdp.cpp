@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 int setSize();
@@ -43,10 +44,41 @@ int playGame(int board[][]){//실제 게임 플레이 -
 	if(how==1) playRandom();
 	else if(how==2) playFile();
 }
-
+/* https://blog.naver.com/lsy_pupu/120835487 */
 int playRandom(int board[][], int size){
+	int num=size*size;
+	srand((unsigned int)time(0));
 	for(int i=0; i<size; i++){
-		cout<<"+---+---+---+"<<endl;
-		cout<<""
+		for(int j=0; j<size; j++){
+			board[i][j]=rand()%num;
+		}
 	}
+	for(int i=0; i<size; i++){
+		if(i%2==0){
+			for(int j=0; j<size; j++){
+				cout<<"+---";
+			}
+			cout<<"+"<<endl;
+		}else{
+			for(int j=0; j<size; j++){
+				cout<<"|"<<setw(3)<<board[i][j];
+			}
+			cout<<"|"<<endl;
+		}
+		
+	}
+	
 }
+
+//2dwdqrq12rdfsd
+
+
+
+
+
+
+
+
+
+
+
